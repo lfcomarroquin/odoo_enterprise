@@ -51,35 +51,35 @@ Instalación de Odoo
 	4.	Crear un contenedor para la imagen de Odoo y enlazarlo al contenedor de la base de datos creado en el paso anterior
   		a. 	docker run -v  ~/odoo/OdooEnterprise/:/mnt/extra-addons -p 8069:8069 --name odooEnterprise --link dbOdooLuis:db -t odoo:17.0
 
-  5.	Descargar megatools para luego descargar el .deb
+  	5.	Descargar megatools para luego descargar el .deb
    		a.	sudo apt update
        			sudo apt install megatools -y
 
-  6.	Descargar el .deb a la carpeta ~/odoo/OdooEnterprise
-      a.	cd ~/odoo/OdooEnterprise
+ 	 6.	Descargar el .deb a la carpeta ~/odoo/OdooEnterprise
+     		a.	cd ~/odoo/OdooEnterprise
       		Para Odoo 17:
 			    megadl 'https://mega.nz/file/kAQCmbyS#eh58EoUf_nh0RemP-jZWSdVI9vD4NShqQnsM2M1A3ro'   
 
-   			  Para Odoo 18:
+   		Para Odoo 18:
    			  megadl 'https://mega.nz/file/UVgQRQbI#MMdjHMwSiWQjEPMs_16FpCv0kF-1EDw_OWOHAaR9_L4'
 
 
-  7.	Levantar el contenedor de Odoo (por si aún no lo está)
-      a. 	sudo docker start odooEnterprise
+  	7.	Levantar el contenedor de Odoo (por si aún no lo está)
+     		a. 	sudo docker start odooEnterprise
 
 	8.	Entrar al contenedor de Odoo
-		  a.	docker exec -it -u root odooEnterprise /bin/bash
+		a.	docker exec -it -u root odooEnterprise /bin/bash
 
-  9.	Una vez dentro del contenedor, entrar al directorio mnt/extra-addons/
-		  a.	cd mnt/extra-addons/
+  	9.	Una vez dentro del contenedor, entrar al directorio mnt/extra-addons/
+		a.	cd mnt/extra-addons/
 
-  10.	Correr un apt update
+ 	10.	Correr un apt update
    
 	11.	Instalar el .deb
- 		  a.	dpkg -i odoo_17.0+e.latest_all.deb
+ 		a.	dpkg -i odoo_17.0+e.latest_all.deb
 
 	12.	Una vez instalado, podemos salir del contenedor
-		  a.	exit
+		a.	exit
 
 	13.	Reiniciar el contenedor de Odoo (odooEnterprise)
-		  a. 	docker restart odooEnterprise
+		a. 	docker restart odooEnterprise
