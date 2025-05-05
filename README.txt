@@ -37,16 +37,16 @@ Instalación de Docker Engine
 Instalación de Odoo
 
 	1.	Levantar contenedor Docker para la base de datos PostgreSQL con nombre dbOdooLuis (El nombre se puede cambiar)
- 		  a.	docker run -d -p 127.0.0.1:5432:5432 -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=odoo -e POSTGRES_DB=postgres --name dbOdooLuis postgres:14
+ 		a.	docker run -d -p 127.0.0.1:5432:5432 -e POSTGRES_USER=odoo -e POSTGRES_PASSWORD=odoo -e POSTGRES_DB=postgres --name dbOdooLuis postgres:14
 
  	2.	Crear directorio donde se almacenará al instalación (en este caso, odoo/OdooEnterprise).
-		  a.	mkdir odoo
+		a.	mkdir odoo
   			  cd odoo
     			mkdir OdooEnterprise
       		cd OdooEnterprise
 	
 	3.	Levantar el contenedor de la base de datos
- 		  a. 	sudo docker start dbOdooLuis
+ 		a. 	sudo docker start dbOdooLuis
    
 	4.	Crear un contenedor para la imagen de Odoo y enlazarlo al contenedor de la base de datos creado en el paso anterior
   		a. 	docker run -v  ~/odoo/OdooEnterprise/:/mnt/extra-addons -p 8069:8069 --name odooEnterprise --link dbOdooLuis:db -t odoo:17.0
